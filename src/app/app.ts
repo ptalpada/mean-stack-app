@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PostCreate } from './post-create/post-create';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PostCreate],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
