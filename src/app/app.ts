@@ -1,18 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { PostCreate } from './post-create/post-create';
-import { MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { PostCreateComponent } from "./posts/post-create/post-create";
+import { Header } from "./header/header";
+import { PostListComponent } from "./posts/post-list/post-list";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [PostCreateComponent, Header, PostListComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  readonly dialog = inject(MatDialog);
+  posts: {title: string, content: string}[] = [];
 
-  openCreatePostDialog() {
-    this.dialog.open(PostCreate);
+  onPostAdded(addedPost: { title: string; content: string; }) {
+    this.posts.push(addedPost);
   }
 }
