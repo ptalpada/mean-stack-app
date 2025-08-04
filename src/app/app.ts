@@ -11,9 +11,5 @@ import { Post } from './posts/post.model';
   styleUrl: './app.scss'
 })
 export class App {
-  storedPosts: Post[] = [];
-
-  onPostAdded(addedPost: { title: string; content: string; }) {
-    this.storedPosts.push(addedPost);
-  }
+  
 }

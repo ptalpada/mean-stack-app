@@ -1,9 +1,10 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-create',
@@ -12,8 +13,8 @@ import { Post } from '../post.model';
   styleUrl: './post-create.scss'
 })
 export class PostCreateComponent {
-
-  @Output() postCreated = new EventEmitter<Post>();
+  
+  postsService = inject(PostsService);
   fb = inject(FormBuilder);
   form: FormGroup;
 
@@ -29,6 +30,6 @@ export class PostCreateComponent {
       title: this.form.value.title,
       content: this.form.value.content
     }
-    this.postCreated.emit(post);
+    this.postsService.addPost(post);
   }
 }
