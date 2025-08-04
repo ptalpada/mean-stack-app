@@ -1,13 +1,14 @@
 <mat-card>
+    <form [formGroup]="form" (submit)="onAddPost()">
+        <mat-form-field>
+            <mat-label>Enter post title</mat-label>
+            <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter post comment</mat-label>
+            <textarea matInput formControlName="content" rows="3"></textarea>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Enter post title</mat-label>
-        <input matInput [(ngModel)]="enteredTitle" />
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Enter post comment</mat-label>
-        <textarea matInput [(ngModel)]="enteredContent" rows="3"></textarea>
-    </mat-form-field>
-
-    <button matButton="filled" type="button" (click)="onAddPost()">Save Post</button>
+        <button matButton="filled" type="submit">Save Post</button>
+    </form>
 </mat-card>

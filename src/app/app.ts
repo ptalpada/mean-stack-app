@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PostCreateComponent } from "./posts/post-create/post-create";
 import { Header } from "./header/header";
 import { PostListComponent } from "./posts/post-list/post-list";
+import { Post } from './posts/post.model';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,9 @@ import { PostListComponent } from "./posts/post-list/post-list";
   styleUrl: './app.scss'
 })
 export class App {
-  posts: {title: string, content: string}[] = [];
+  storedPosts: Post[] = [];
 
   onPostAdded(addedPost: { title: string; content: string; }) {
-    this.posts.push(addedPost);
+    this.storedPosts.push(addedPost);
   }
 }
